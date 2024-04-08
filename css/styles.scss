@@ -1,0 +1,30 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$link-decoration: none;
+$primary: #EBE8DD;
+$secondary: #242424;
+$tertiary: #A58B46;
+$quaternary: #FFFFFF;
+$quinary: #F5F5F5;
+$senary: #B5B5B5;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+$custom-colors: (
+	"farve": $cyan-400,
+);
+
+font{
+
+}
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "bootstrapComponents";
+
+// 5. Du kan lave styling her...
