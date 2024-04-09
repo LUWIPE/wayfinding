@@ -5,10 +5,7 @@
 $link-decoration: none;
 $primary: #EBE8DD;
 $secondary: #242424;
-$tertiary: #A58B46;
-$quaternary: #FFFFFF;
-$quinary: #F5F5F5;
-$senary: #B5B5B5;
+
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -16,10 +13,14 @@ $senary: #B5B5B5;
 
 // 4. Include any default map overrides here
 $custom-colors: (
-	"farve": $cyan-400,
+        "farve": $cyan-400,
+        "gold": #A58B46,
+        "quaternary": #FFFFFF,
+        "quinary": #F5F5F5,
+        "senary": #B5B5B5
 );
 
-font{
+font {
 
 }
 
