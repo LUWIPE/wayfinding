@@ -19,13 +19,13 @@ require "settings/init.php";
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-        <div></div>
-        <div>
-            <div></div>
-            <div></div>
-            <div></div>
+<div class="container mt-3">
+    <div class="row justify-content-between">
+        <div class="col-2"><a href="index.php"><img class="img-fluid" src="images/voresnyk-logo-gold.png" alt=""></a></div>
+        <div class="d-flex col-4 justify-content-between align-items-center">
+            <div class="flag ms-3"><img class="flag rounded-circle border border-5 border-gold" src="images/denmark.png" alt=""></div>
+            <div class="flag"><img class="flag rounded-circle border border-2 border-secondary" src="images/britain.png" alt=""></div>
+            <div class="flag me-3"><img class="flag rounded-circle border border-2 border-secondary" src="images/germany.png" alt=""></div>
         </div>
     </div>
 </div>

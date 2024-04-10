@@ -29,3 +29,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
+.flag{
+  height: 90px;
+  width: 90px;
+}
