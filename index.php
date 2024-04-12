@@ -16,9 +16,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div class="container fixed-top mt-3">
+    <div class="row justify-content-end">
+        <div class="d-flex col-4 justify-content-between align-items-center">
+            <div class="flag ms-3"><img class="flag rounded-circle border border-5 border-gold" src="images/denmark.png"
+                                        alt=""></div>
+            <div class="flag"><img class="flag rounded-circle border border-2 border-secondary" src="images/britain.png"
+                                   alt=""></div>
+            <div class="flag me-3"><img class="flag rounded-circle border border-2 border-secondary"
+                                        src="images/germany.png" alt=""></div>
+        </div>
+    </div>
+</div>
 
-<div id="googleMap" style="width:100%;height:90vh;"></div>
+<div id="googleMap" style="width:100%;height:95vh;"></div>
+<div class="container-fluid fixed-bottom bg-secondary">
+    <div class="row justify-content-evenly">
+        <div class="col-1 m-2 text-center">
+            <a href="index.php"><i class="fa-solid fa-house text-gold h1"></i></a>
+        </div>
+        <div class="col-1 m-2 text-center">
+            <a href="places.php"><i class="fa-solid fa-magnifying-glass text-gold h1"></i></a>
+        </div>
+    </div>
 
+</div>
 
 <script>
     function myMap() {
