@@ -6,7 +6,6 @@ $link-decoration: none;
 $primary: #EBE8DD;
 $secondary: #242424;
 
-
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/variables-dark";
@@ -29,6 +28,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "bootstrapComponents";
 
 // 5. Du kan lave styling her...
+body{
+  font-family: "proxima-nova", sans-serif;
+}
 .flag{
   height: 90px;
   width: 90px;
