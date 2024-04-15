@@ -84,21 +84,16 @@ require "settings/init.php";
             ?>
         </div>
         <div class="row col-8 justify-content-center m-0 p-0">
-            <div class="row justify-content-start p-0">
-                <form class="p-0" action="search.php" method="post">
-                    <div class="d-flex align-content-start m-0 p-0 mb-3 ms-5">
-                        <div class=" input-group">
-                            <input class="form-control text-secondary bg-primary border-2 border-gold fs-4 "
-                                   aria-label="place" type="text" name="search" placeholder="Søg her...">
-                            <input class="btn btn-gold text-quinary fs-4" id="searchBtn" type="submit" value="Søg"
-                                   name="submit"">
-                        </div>
+            <form class="p-0" action="search.php" method="post">
+                <div class="d-flex align-content-start m-0 p-0 mb-3 ms-5">
+                    <div class=" input-group">
+                        <input class="form-control text-secondary bg-primary border-2 border-gold fs-4 "
+                               aria-label="place" type="text" name="search" placeholder="Søg her...">
+                        <input class="btn btn-gold text-quinary fs-4" id="searchBtn" type="submit" value="Søg"
+                               name="submit"">
                     </div>
-                </form>
-                <div class="ms-5 mb-3 col-2 p-0 card justify-content-center">
-                    <a class="text-gold fs-5" href="places.php"><i class="fa-solid fa-xmark fs-6"></i> Fjern filter</a>
                 </div>
-            </div>
+            </form>
             <div class="row justify-content-between mb-5 p-0" id="places">
                 <?php
                 $sqladd = "";
@@ -114,38 +109,42 @@ require "settings/init.php";
 
                 $sqlPlaces = "SELECT * FROM ((places INNER JOIN category ON placeCategory = cateId) INNER JOIN subCategory ON placeSubCategory = subCateId) WHERE 1=1" . $sqladd;
                 $places = $db->sql($sqlPlaces, $bind);
-                foreach ($places as $place) {
+                foreach ($places
+
+                         as $place) {
                     ?>
                     <div class="col-5 mb-5 ms-5 p-1 card bg-primary d-flex align-content-center pt-5 pb-5"
                          id="<?php echo($place->placeId) ?>">
-                        <div class="w-100 text-center ">
-                            <div class="fs-6 text-gold">
-                                <?php
-                                echo $place->cateName;
-                                ?>
-                            </div>
-                            <div class="fs-5 mt-2 mb-2">
-                                <strong>
+                        <a href="destination.php?placeId=<?php echo $place->placeId ?>" id="destination">
+                            <div class="w-100 text-center ">
+                                <div class="fs-6 text-gold">
                                     <?php
-                                    echo $place->placeName; //sorter alfabetisk//
-                                    ?></strong>
+                                    echo $place->cateName;
+                                    ?>
+                                </div>
+                                <div class="fs-5 mt-2 mb-2 text-secondary">
+                                    <strong>
+                                        <?php
+                                        echo $place->placeName; //sorter alfabetisk//
+                                        ?></strong>
+                                </div>
+                                <div class="fs-6 text-secondary">
+                                    <?php
+                                    echo $place->streetName . ' ' . $place->streetNumber;
+                                    ?>
+                                </div>
+                                <div class="fs-6 d-none text-secondary">
+                                    <?php
+                                    echo $place->postalCode . ' ' . $place->cityName;
+                                    ?>
+                                </div>
+                                <div class="fs-6 d-none text-secondary">
+                                    <?php
+                                    echo $place->phoneNumber;
+                                    ?>
+                                </div>
                             </div>
-                            <div class="fs-6">
-                                <?php
-                                echo $place->streetName . ' ' . $place->streetNumber;
-                                ?>
-                            </div>
-                            <div class="fs-6 d-none">
-                                <?php
-                                echo $place->postalCode . ' ' . $place->cityName;
-                                ?>
-                            </div>
-                            <div class="fs-6 d-none">
-                                <?php
-                                echo $place->phoneNumber;
-                                ?>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                     <?php
                 }
@@ -154,7 +153,16 @@ require "settings/init.php";
         </div>
     </div>
 </div>
-
+<div class="container-fluid fixed-bottom bg-secondary">
+    <div class="row justify-content-evenly">
+        <div class="col-1 m-2 text-center">
+            <a href="index.php"><i class="fa-solid fa-house text-gold h1"></i></a>
+        </div>
+        <div class="col-1 m-2 text-center">
+            <a href="places.php"><i class="fa-solid fa-magnifying-glass text-gold h1"></i></a>
+        </div>
+    </div>
+</div>
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>

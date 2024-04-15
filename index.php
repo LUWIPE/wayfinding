@@ -39,7 +39,6 @@
             <a href="places.php"><i class="fa-solid fa-magnifying-glass text-gold h1"></i></a>
         </div>
     </div>
-
 </div>
 
 <script>
