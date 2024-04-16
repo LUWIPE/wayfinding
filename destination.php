@@ -37,8 +37,9 @@ require "settings/init.php";
 </div>
 <div class="" id="onePlace">
     <div class="container">
-        <div class="mt-4" id="back">
-            <a href="places.php" class="fs-5 text-gold"><i class="fa-solid fa-chevron-left fs-6"></i> Tilbage til oversigten</a>
+        <div class="mt-4 mb-2" id="back">
+            <a href="places.php" class="fs-5 text-gold"><i class="fa-solid fa-chevron-left fs-6"></i> Tilbage til
+                oversigten</a>
         </div>
     </div>
     <div class="container-fluid bg-primary p-3">
@@ -114,20 +115,42 @@ require "settings/init.php";
     </div>
 </div>
 
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUwmkWzSdJsxdloWRUlF2ZLXj-3Z6WLVU&callback=myMap"
+        async></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
+
+
+    <?php
+    $sqladd = "";
+    $bind = [];
+
+    if (!empty($_GET["placeId"])) {
+        $sqladd = " AND placeId = :placeId";
+        $bind[":placeId"] = $_GET["placeId"];
+    }
+
+    $sqlCoordinates = "SELECT * FROM places WHERE 1=1" . $sqladd;
+    $coordinates = $db->sql($sqlCoordinates, $bind);
+    ?>
+
 
     function myMap() {
-        var mapProp = {
-            center: new google.maps.LatLng(54.7706162, 11.8710249),
+        const coords = {lat:<?php echo $coordinates[0]->latitude ?>, lng:<?php echo $coordinates[0]->longitude ?> }
+        const mapProp = {
+            center: coords,
             zoom: 18,
         };
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    }
-</script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUwmkWzSdJsxdloWRUlF2ZLXj-3Z6WLVU&callback=myMap"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+        const map = new google.maps.Map(document.querySelector("#googleMap"), mapProp);
+
+        const marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+        });
+    }
 
 </script>
 </body>
