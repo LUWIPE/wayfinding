@@ -42,14 +42,21 @@
 </div>
 
 <script>
-    function myMap() {
-        var mapProp= {
-            center:new google.maps.LatLng(54.7662677,11.8716984),
-            zoom:20,
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
 
+    function myMap() {
+        const coords = {lat: 54.7662677, lng: 11.8716984}
+        const mapProp = {
+            center: coords,
+            zoom: 18,
+        };
+
+        const map = new google.maps.Map(document.querySelector("#googleMap"), mapProp);
+
+        const marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+        });
+    }
 
 </script>
 
